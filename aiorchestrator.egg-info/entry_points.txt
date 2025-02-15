@@ -1,0 +1,2 @@
+[console_scripts]
+aiorch = aiorchestrator.cli:cli
