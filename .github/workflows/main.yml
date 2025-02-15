@@ -1,6 +1,9 @@
 # .github/workflows/main.yml
 name: AIOrchestrator CI
-
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
 on: [push, pull_request]
 
 jobs:
@@ -46,3 +49,7 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml
+        flags: unittests
+        env_vars: OS,PYTHON
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # For comment capabilities
